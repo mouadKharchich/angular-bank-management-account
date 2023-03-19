@@ -1,0 +1,65 @@
+<div class="w-full">
+    <a routerLink="/addCustomer" class="bg-blue-500 text-white font-bold p-2 rounded-md float-right mb-3">
+        <i class="bi bi-plus-square-fill"></i>
+        Add new customer</a>
+    <input class="border rounded-md shadow w-full p-2" placeholder="Search" (input)="onQuery($event)" >
+    <table class="min-w-max w-full table-auto mt-4 bg-white shadow rounded">
+      <thead class="rounded">
+        <tr class="bg-gray-900 text-white text-sm leading-normal rounded">
+          <th class="py-3 px-6 text-left uppercase">ID</th>
+          <th class="py-3 px-6 text-left uppercase">First Name</th>
+          <th class="py-3 px-6 text-left uppercase">Last Name</th> 
+          <th class="py-3 px-6 text-center uppercase">Email</th>
+          <th class="py-3 px-6 text-center uppercase">Type Bank</th>
+          <th class="py-3 px-6 text-center uppercase">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-sm font-light">
+        <tr class="border-b border-gray-200 hover:bg-gray-100" *ngFor="let customer of customers">
+          <td class="py-3 px-6 text-left whitespace-nowrap m-auto">
+            <div class="flex items-center">
+              <div class="mr-2"></div>
+              <span class="font-medium">{{customer?.id}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-left whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="mr-2"></div>
+              <span class="font-medium">{{customer?.firstName}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-left">
+            <div class="flex items-center">
+              <div class="mr-2"></div>
+              <span>{{customer?.lastName}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-center">
+            <div class="flex items-center justify-center">
+              <div class="mr-4"></div>
+              <span>{{customer?.email}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-center">
+            <div class="flex items-center justify-center">
+              <div class="mr-2"></div>
+              <span>{{customer?.typeBank}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-center">
+            <div class="flex item-center justify-center">
+              <div class="w-4 mr-2 transform text-green-400 hover:scale-110 hover:cursor-pointer" [routerLink]="['/details',customer?.id]">
+                <i class="bi bi-eye-fill"></i>
+              </div>
+              <div class="w-4 mr-2 transform text-yellow-400 hover:scale-110 hover:cursor-pointer" [routerLink]="['/edit',customer?.id]">
+                <i class="bi bi-pen-fill"></i>
+              </div>
+              <div class="w-4 mr-2 transform text-red-400 hover:scale-110 hover:cursor-pointer" (click)="delete(customer?.id)">
+                <i class="bi bi-trash3-fill"></i>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -8,3 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'bank_customer_management';
 }
+
+
+/*
+model confim delete 
+validation input
+generate public ID
+change design
+create new projet with dumb and smart component
+*/

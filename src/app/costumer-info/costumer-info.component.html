@@ -1,0 +1,35 @@
+<div class="w-1/3">
+    <h1 class="text-3xl font-bold">Details Customer</h1>
+    <div class="mt-10 text-xm ml-4">
+        <div class="text-gray-500">
+            <span class="text-black font-bold uppercase">First name : </span> {{customer?.firstName}}
+        </div>
+        <div class="text-gray-500 mt-4">
+            <span class="text-black font-bold uppercase">Last name : </span> {{customer?.lastName}}
+        </div>
+        <div class="text-gray-500 mt-4">
+            <span class="text-black font-bold uppercase">Email : </span> {{customer?.email}}
+        </div>
+        <div class="text-gray-500 mt-4">
+            <span class="text-black font-bold uppercase">Gender : </span> {{customer?.gender}}
+        </div>
+        <div class="text-gray-500 mt-4">
+            <span class="text-black font-bold uppercase">Address : </span> {{customer?.address}} 
+        </div>
+        <div class="text-gray-500 mt-4">
+            <span class="text-black font-bold uppercase">Phone number : </span> {{customer?.phoneNumber}}
+        </div>
+        <div class="text-gray-500 mt-4">
+            <span class="text-black font-bold uppercase">Amount : </span> {{customer?.amount}} $
+        </div>
+        <div class="text-gray-500 mt-4">
+            <span class="text-black font-bold uppercase">Bank Type : </span> {{customer?.typeBank}}
+        </div>
+        <div class="float-right">
+            <button class="bg-red-400 text-white font-bold px-2 py-1 rounded mt-3 mr-2" (click)="delete(customer?.id)">Delete</button>
+        <a class="bg-gray-400 text-white font-bold px-2 py-1 rounded mt-3" routerLink="/customer">Back</a>
+        </div>
+
+    </div>
+
+</div>
