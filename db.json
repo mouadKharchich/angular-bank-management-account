@@ -25,24 +25,13 @@
     {
       "firstName": "firstName4",
       "lastName": "lastName4",
-      "email": "firstName4@gmail.com",
-      "address": "tanger , new adress",
-      "gender": "male",
-      "phoneNumber": "0626256808",
-      "typeBank": "checking",
-      "amount": 0,
-      "id": 3
-    },
-    {
-      "firstName": "firstName4",
-      "lastName": "lastName4",
       "email": "firstName2@gmail.com",
       "address": "tanger , new adress 44",
       "gender": "male",
       "phoneNumber": "0626254445",
       "typeBank": "checking",
-      "amount": 0,
-      "id": 4
+      "amount": "400",
+      "id": 3
     }
   ]
 }

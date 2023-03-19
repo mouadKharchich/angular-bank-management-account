@@ -12,6 +12,8 @@ import { CustomerService } from '../services/customer.service';
 export class CostumerInfoComponent implements OnInit{
 
   customer?:Customer;
+  showModal=false;
+  idDelete:number=-1;
 
   constructor(
     private customerService:CustomerService,
@@ -32,11 +34,23 @@ export class CostumerInfoComponent implements OnInit{
     
   }
 
-  delete(id:any){
-    this.customerService.deleteCustomer(id).subscribe((res)=>{
+  delete(){
+    this.customerService.deleteCustomer(this.idDelete).subscribe((res)=>{
         this.router.navigate(['/customer']);
     })
 
+  }
+
+
+  toggleModal(){
+    this.showModal = !this.showModal;
+  }
+
+  saveId(id:any){
+    this.showModal = !this.showModal;
+    if(this.showModal){
+      this.idDelete=id;
+    }
   }
 
 

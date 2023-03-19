@@ -12,7 +12,9 @@ export class CustomerRouteComponent implements OnInit{
   customers:Customer[]=[];
   searchQuery = '';
   searchQuerySubject = new Subject<string>();
-
+  showModal = false;
+  idDelete:number=-1;
+  
   constructor(private customerService:CustomerService){
     this.searchQuerySubject
       .pipe(debounceTime(500), distinctUntilChanged())
@@ -27,10 +29,10 @@ export class CustomerRouteComponent implements OnInit{
     });
   }
 
-  delete(id:any){
-    this.customerService.deleteCustomer(id).subscribe(() => {
-      this.customers = this.customers.filter((p) => p.id !== id);
-     
+  delete(){
+    this.customerService.deleteCustomer(this.idDelete).subscribe(() => {
+      this.customers = this.customers.filter((p) => p.id !== this.idDelete);
+      this.showModal = !this.showModal;  
     });
 
     //console.log(id)
@@ -46,4 +48,14 @@ export class CustomerRouteComponent implements OnInit{
     this.searchQuerySubject.next(event.target.value);
   }
 
+  toggleModal(){
+    this.showModal = !this.showModal;
+  }
+
+  saveId(id:any){
+    this.showModal = !this.showModal;
+    if(this.showModal){
+      this.idDelete=id;
+    }
+  }
 }
