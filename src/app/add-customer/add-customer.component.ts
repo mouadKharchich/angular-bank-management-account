@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { Customer } from '../modules/customer.model';
 import { CustomerService } from '../services/customer.service';
 
@@ -21,6 +22,14 @@ export class AddCustomerComponent {
     ){
 
       this.customerForm = this.formBuilder.group({
+        cin:[
+          '',
+          [
+            Validators.required,
+            Validators.minLength(7)
+          ],
+          [this.validateCin.bind(this)],
+        ],
         firstName:[
           '',
           [
@@ -92,7 +101,7 @@ export class AddCustomerComponent {
           .createCustomer(this.customerForm.value)
           .subscribe((customer:Customer)=>{
             this.isLoading=false;
-            this.customerForm.reset();
+            this.customerForm.reset(); 
             this.router.navigate(['/customer']);
           });
 
@@ -100,5 +109,17 @@ export class AddCustomerComponent {
       }
     }
 
+    validateCin(
+      control: AbstractControl
+    ): Observable<{ cinExists: boolean } | null> {
+      return this.customerService.getCustomerByCin(control.value).pipe(
+        map((customers: Customer[]) => {
+          if (customers.length > 0) {
+            return { cinExists: true };
+          }
+          return null;
+        })
+      );
+    }
 
 }

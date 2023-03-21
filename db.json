@@ -1,37 +1,52 @@
 {
   "customers": [
     {
-      "firstName": "firstName1",
-      "lastName": "lastName1",
-      "email": "firstName@gmail.com",
-      "address": "tanger , new adress",
+      "cin": "K000999",
+      "firstName": "firstname1",
+      "lastName": "lastname1",
+      "email": "firstname_lastname1@gmail.com",
+      "address": "tanger,beni makada",
       "gender": "male",
-      "phoneNumber": "0626256864",
+      "phoneNumber": "0688899900",
       "typeBank": "checking",
-      "amount": "200",
+      "amount": 900,
       "id": 1
     },
     {
-      "id": 2,
-      "firstName": "firstName2",
-      "lastName": "lastName2",
-      "email": "firstName2@gmail.com",
-      "address": "tanger , new adress 44",
-      "gender": "woman",
-      "phoneNumber": "0626254445",
-      "typeBank": "checking",
-      "amount": "3100"
+      "cin": "K999888",
+      "firstName": "firstname2",
+      "lastName": "lastname2",
+      "email": "firstname_lastname2@gmail.com",
+      "address": "tanger,najma",
+      "gender": "male",
+      "phoneNumber": "0688899999",
+      "typeBank": "saving",
+      "amount": 500,
+      "id": 2
     },
     {
-      "firstName": "firstName4",
-      "lastName": "lastName4",
-      "email": "firstName2@gmail.com",
-      "address": "tanger , new adress 44",
-      "gender": "male",
-      "phoneNumber": "0626254445",
+      "cin": "K000998",
+      "firstName": "firstname3",
+      "lastName": "lastname3",
+      "email": "firstname_lastname3@gmail.com",
+      "address": "tanger,najma",
+      "gender": "woman",
+      "phoneNumber": "0688899900",
       "typeBank": "checking",
-      "amount": "400",
+      "amount": 540,
       "id": 3
+    },
+    {
+      "cin": "K999880",
+      "firstName": "firstname4",
+      "lastName": "lastname4",
+      "email": "firstname_lastname4@gmail.com",
+      "address": "tanger,najma",
+      "gender": "woman",
+      "phoneNumber": "0688899901",
+      "typeBank": "saving",
+      "amount": 850,
+      "id": 4
     }
   ]
 }

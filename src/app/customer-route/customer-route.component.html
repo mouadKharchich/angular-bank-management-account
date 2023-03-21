@@ -8,6 +8,7 @@
       <thead class="rounded">
         <tr class="bg-gray-900 text-white text-sm leading-normal rounded">
           <th class="py-3 px-6 text-left uppercase">ID</th>
+          <th class="py-3 px-6 text-left uppercase">CIN</th>
           <th class="py-3 px-6 text-left uppercase">First Name</th>
           <th class="py-3 px-6 text-left uppercase">Last Name</th> 
           <th class="py-3 px-6 text-center uppercase">Email</th>
@@ -21,6 +22,12 @@
             <div class="flex items-center">
               <div class="mr-2"></div>
               <span class="font-medium">{{customer?.id}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-left whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="mr-2"></div>
+              <span class="font-medium">{{customer?.cin}}</span>
             </div>
           </td>
           <td class="py-3 px-6 text-left whitespace-nowrap">

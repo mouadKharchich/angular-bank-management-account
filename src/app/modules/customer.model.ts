@@ -2,6 +2,7 @@
 
 export interface Customer{
   id?:number,
+  cin?:string,
   firstName:string, 
   lastName:string,
   email:string,

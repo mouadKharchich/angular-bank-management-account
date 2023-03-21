@@ -37,6 +37,9 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${API_URL}?q=${q}`);
   }
 
+  getCustomerByCin(cin: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${API_URL}?cin=${cin}`);
+  }
   
 
 }

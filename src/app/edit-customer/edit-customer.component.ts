@@ -27,30 +27,42 @@ export class EditCustomerComponent implements OnInit {
             '',
             [
               Validators.required,
+              Validators.minLength(3)
             ]
+        ],
+        cin:[
+          '',
+          [
+            Validators.required,
+            Validators.minLength(7)
+          ],
         ],
         firstName:[
           '',
           [
             Validators.required,
+            Validators.minLength(3)
           ]
         ], 
         lastName:[
           '',
           [
             Validators.required,
+            Validators.minLength(3)
           ]
         ],
         email:[
           '',
           [
             Validators.required,
+            Validators.email
           ]
         ],
         address:[
           '',
           [
             Validators.required,
+            Validators.minLength(3)
           ]
         ],
         gender:[
@@ -63,6 +75,7 @@ export class EditCustomerComponent implements OnInit {
           '',
           [
             Validators.required,
+            Validators.pattern(/(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}/g)
           ]
         ],
         typeBank:[
@@ -75,6 +88,7 @@ export class EditCustomerComponent implements OnInit {
           0,
           [
             Validators.required,
+            Validators.min(0)
           ]
         ],
       });
@@ -99,17 +113,21 @@ export class EditCustomerComponent implements OnInit {
       return this.customerForm.get(controlName);
     }
    
-    submit() {
-      this.isLoading = true;
+    submit() { 
+      if(this.customerForm.valid){
+        
+        this.isLoading = true;
+
         this.customerService
         .updateCustomer(this.customerForm.value)
         .subscribe((customer:Customer)=>{
           this.isLoading=false;
           this.customerForm.reset();
           this.router.navigate(['/customer']);
-        })
+        });
 
-        console.log(this.customerForm.value)
+        //console.log(this.customerForm.value)
+      }
     }
 }
  
