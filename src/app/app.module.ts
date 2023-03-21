@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { GraphsComponent } from './graphs/graphs.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     AddCustomerComponent,
     CardStatisticComponent,
     NotFoundComponent,
-    EditCustomerComponent  ],
+    EditCustomerComponent,
+    GraphsComponent  ],
   imports: [
     BrowserModule,
     FormsModule,

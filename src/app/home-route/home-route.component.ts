@@ -9,19 +9,40 @@ import { CustomerService } from '../services/customer.service';
 export class HomeRouteComponent implements OnInit {
    customersNumber:number=0;
    totalAmount:number=0;
+   allAmountCustomers:number[]=[];
+   customersLastName:string[]=[];
 
    constructor(private customerService:CustomerService){
 
    }
   ngOnInit(): void {
     this.customerService.getCustomers().subscribe((customers) => {
+      //customers number
       this.customersNumber=customers.length;
-      this.totalAmount=customers.map((customer)=>{
+    
+      //table of amount all customers
+      this.allAmountCustomers=customers.map((customer)=>{
         return +customer.amount;
-      }).reduce((prev,current)=>prev+current,0);
+      });
+      //console.log("table amount",this.allAmountCustomers);
+
+      this.customersLastName=customers.map((customer)=>{
+        return customer.lastName;
+      })
+
+      //console.log("table lastnames",this.customersLastName)
+      //total amount of all customers
+      this.totalAmount=this.allAmountCustomers.reduce((prev,current)=>prev+current,0);
+
+      //console.log(this.customersLastName)
+
 
     });
+
+
+
   }
+
 
 
 }
